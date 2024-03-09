@@ -159,7 +159,7 @@ function Navbar() {
                 type={"text"}
                 size="small"
                 color="info"
-                className="bg-gray border-none"
+                className="bg-gray input-border-none"
                 endAdornment={
                   <InputAdornment position="end" className="mr-2">
                     <IconButton
