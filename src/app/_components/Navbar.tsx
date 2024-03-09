@@ -9,14 +9,19 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
-import { TextField } from "@mui/material";
+import { PiHeartThin, PiShoppingCartLight } from "react-icons/pi";
+import {
+  FormControl,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+} from "@mui/material";
+import { FiSearch } from "react-icons/fi";
 
-const pages = ["Products", "Pricing", "Blog"];
+const pages = ["Home", "Contact", "About", "Sign Up"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
@@ -46,7 +51,7 @@ function Navbar() {
     <AppBar position="static" className="bg-white text-black">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} /> */}
           <Typography
             variant="h6"
             noWrap
@@ -101,7 +106,7 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <Typography
             variant="h5"
             noWrap
@@ -129,7 +134,7 @@ function Navbar() {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, display: "block" }}
-                className="text-black"
+                className="capitalize text-black"
               >
                 {page}
               </Button>
@@ -137,19 +142,47 @@ function Navbar() {
           </Box>
 
           {/* ---------------for last options */}
-          <Box sx={{ flexGrow: 0 }}>
-            <TextField
-              id="outlined-controlled"
-              color="info"
-              label="What are you looking for?"
-              variant="outlined"
-              size="small"
-              className="focus:border-primary focus:ring-secondary"
-            />
+          <Box
+            sx={{ flexGrow: 0 }}
+            className="flex items-center justify-center gap-4"
+          >
+            <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+              <InputLabel
+                color="info"
+                htmlFor="outlined-adornment"
+                size="small"
+              >
+                Search...
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-adornment"
+                type={"text"}
+                size="small"
+                color="info"
+                className="bg-gray border-none"
+                endAdornment={
+                  <InputAdornment position="end" className="mr-2">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      //   onClick={handleClickShowPassword}
+                      //   onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                      className="text-black"
+                    >
+                      <FiSearch size={20} />
+                    </IconButton>
+                  </InputAdornment>
+                }
+                label="Search..."
+              />
+            </FormControl>
+
+            <PiHeartThin size={30} />
 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
+                <PiShoppingCartLight size={30} />
               </IconButton>
             </Tooltip>
             <Menu
